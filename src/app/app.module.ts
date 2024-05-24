@@ -1,4 +1,7 @@
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +14,8 @@ import { CatPageComponent } from './components/cat-page/cat-page.component';
 import { AccessoryComponent } from './components/accessory-page/accessory.component';
 import { FoodPageComponent } from './components/food-page/food-page.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,18 +27,12 @@ import { BlogComponent } from './components/blog/blog.component';
     CatPageComponent,
     FoodPageComponent,
     AccessoryComponent,
-    BlogComponent
+    BlogComponent,
+    LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [
-    provideClientHydration()
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [provideClientHydration()],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
