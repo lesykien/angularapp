@@ -10,6 +10,7 @@ import { DogPageComponent } from './components/dog-page/dog-page.component';
 import { CatPageComponent } from './components/cat-page/cat-page.component';
 import { AccessoryComponent } from './components/accessory-page/accessory.component';
 import { FoodPageComponent } from './components/food-page/food-page.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FoodPageComponent } from './components/food-page/food-page.component';
     DogPageComponent,
     CatPageComponent,
     FoodPageComponent,
-    AccessoryComponent
+    AccessoryComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
