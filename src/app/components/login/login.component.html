@@ -4,21 +4,26 @@
             <div _ngcontent-ng-c2155392479="" class="row py-5">
                 <div _ngcontent-ng-c2155392479="" class="offset-md-3 col-md-6 my-5">
                     <h2 _ngcontent-ng-c2155392479="" class="display-3 fw-normal text-center"> Đăng nhập</h2>
-                    <form _ngcontent-ng-c2155392479="" novalidate="" class="ng-untouched ng-pristine ng-valid">
+                    <form [formGroup]="LoginForm" class="ng-untouched ng-pristine ng-valid">
                         <div _ngcontent-ng-c2155392479="" class="mb-3">
                             <input _ngcontent-ng-c2155392479="" type="email" name="email" id="email"
-                                placeholder="Nhập Email" class="form-control form-control-lg">
-                        </div>
-                        <div _ngcontent-ng-c2155392479="" class="mb-3">
-                            <input _ngcontent-ng-c2155392479="" type="password" name="email" id="password1"
-                                placeholder="Tạo Mật Khẩu" class="form-control form-control-lg">
+                                placeholder="Nhập Email" class="form-control form-control-lg" formControlName="email">
+                            <p style="color: red;"
+                            *ngIf="LoginForm.get('email')?.errors?.['required']"
+                            >Bạn chưa nhập email</p>
+                            <p style="color: red;"
+                            *ngIf="LoginForm.get('email')?.errors?.['email']"
+                            >Email không đúng định dạng</p>
                         </div>
                         <div _ngcontent-ng-c2155392479="" class="mb-3">
                             <input _ngcontent-ng-c2155392479="" type="password" name="email" id="password2"
-                                placeholder="Lặp Lại Mật Khẩu" class="form-control form-control-lg">
+                                placeholder="Mật khẩu" class="form-control form-control-lg" formControlName="password">
+                                <p style="color: red;"
+                                *ngIf="LoginForm.get('password')?.errors?.['required']"
+                                >Bạn chưa nhập mật khẩu</p>
                         </div>
                         <div _ngcontent-ng-c2155392479="" class="d-grid gap-2">
-                            <button _ngcontent-ng-c2155392479="" type="submit"
+                            <button (click)="SumbitForm()" [disabled]="LoginForm.invalid" type="submit"
                                 class="btn btn-dark btn-lg rounded-1">Đăng nhập</button>
                         </div>
                     </form>
