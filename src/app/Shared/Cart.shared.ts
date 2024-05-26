@@ -65,6 +65,37 @@ class _cart {
       return list;
     }
   }
+
+  static Remove(item: cartLocal, key: string) {
+    let list: cartLocal[] = this.LoadItemInCart(key);
+    list.forEach((i) => {
+      if (i.id === item.id) {
+        _cart.RemoveItem(list, i);
+        localStorage.setItem(key, JSON.stringify(list));
+      }
+    });
+  }
+
+  static MiniusQuantity(item: any, key: string) {
+    if (item.quantity == 1) {
+      return;
+    }
+    let list: cartLocal[] = this.LoadItemInCart(key);
+    list = this.IsChangeQuantity(item.quantity, item.id, list);
+    localStorage.setItem(key, JSON.stringify(list));
+  }
+  static IsChangeQuantity(
+    quantity: number,
+    id: number,
+    list: cartLocal[]
+  ): cartLocal[] {
+    for (let i: number = 0; i < list.length; i++) {
+      if (id == list[i].id) {
+        list[i].quantity = quantity - 1;
+      }
+    }
+    return list;
+  }
 }
 
 export { cartLocal, _cart };

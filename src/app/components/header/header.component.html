@@ -96,7 +96,10 @@
 
           <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
             <li class="nav-item">
-              <a href="index.html" class="nav-link active">Trang Chủ</a>
+              <a [routerLink]="['/']" class="nav-link active">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/shop']" class="nav-link">Cửa hàng</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
@@ -135,8 +138,7 @@
                 </a>
               </li>
               <li class="">
-                <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                  aria-controls="offcanvasCart">
+                <a [routerLink]="['/cart']" class="mx-3">
                   <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
                   <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
                     {{listItem.length}}

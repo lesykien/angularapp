@@ -16,6 +16,9 @@ import { FoodPageComponent } from './components/food-page/food-page.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { SingleProductComponent } from './components/single-product/single-product.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { LoginComponent } from './components/login/login.component';
     AccessoryComponent,
     BlogComponent,
     LoginComponent,
+    ShopComponent,
+    SingleProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

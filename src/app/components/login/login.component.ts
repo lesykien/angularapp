@@ -13,10 +13,21 @@ export class LoginComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
+  SiginForm = this.form.group({
+    fullname: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+    confirm_password: ['', Validators.required],
+  });
   ngOnInit(): void {}
 
   SumbitForm() {
     let request: any = this.LoginForm.value;
+    console.log(request);
+  }
+
+  SumbitSignin() {
+    let request: any = this.SiginForm.value;
     console.log(request);
   }
 }

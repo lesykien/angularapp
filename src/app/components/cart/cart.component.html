@@ -1,0 +1,126 @@
+<section id="banner" class="py-3" style="background: #F9F3EC;">
+    <div class="container">
+        <div class="hero-content py-5 my-3">
+            <h2 class="display-1 mt-3 mb-0">Giỏ hàng</h2>
+        </div>
+    </div>
+</section>
+
+<section id="cart" class="my-5 py-5">
+    <div class="container">
+        <div class="row g-md-5">
+            <div class="col-md-8 pe-md-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="card-title text-uppercase">Sản phẩm</th>
+                            <th scope="col" class="card-title text-uppercase">Số lượng</th>
+                            <th scope="col" class="card-title text-uppercase">
+                                Đơn giá
+                            </th>
+                            <th scope="col" class="card-title text-uppercase">
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of listCart">
+                            <td scope="row" class="py-4">
+                                <div class="cart-info d-flex flex-wrap align-items-center ">
+                                    <div class="col-lg-3">
+                                        <div class="card-image">
+                                            <img src="https://demo.templatesjungle.com/waggy/images/item9.jpg"
+                                                alt="cloth" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="card-detail ps-3">
+                                            <h5 class="card-title">
+                                                <a [routerLink]="['/single-product/'+ item.id]"
+                                                    class="text-decoration-none">
+                                                    {{item.name}}
+                                                </a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 align-middle">
+                                <div class="input-group product-qty align-items-center w-50">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-light btn-number"
+                                            data-type="minus"
+                                            (click)="ChangeQuantity(item, 'minus')"
+                                            >
+                                            -
+                                        </button>
+                                    </span>
+                                    <input type="text" id="quantity" name="quantity"
+                                        class="form-control input-number text-center p-2 mx-1" [value]="item.quantity">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-light btn-number"
+                                            data-type="plus" data-field="" (click)="ChangeQuantity(item, 'plus')">
+                                            +
+                                        </button>
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="py-4 align-middle">
+                                <div class="total-price">
+                                    <span class="secondary-font fw-medium">
+                                        {{item.price| currency:' ':'symbol':'1.0-0'}}đ
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="py-4 align-middle">
+                                <div class="cart-remove">
+                                    <button class="btn btn-primary btn-sm p-1 text-uppercase rounded-1 w-100"
+                                        (click)="RemoveItem(item)">
+                                        Xóa
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <div class="cart-totals">
+                    <h2 class="pb-4">Thông tin đơn hàng</h2>
+                    <div class="total-price pb-4">
+                        <table cellspacing="0" class="table text-uppercase">
+                            <tbody>
+                                <tr class="order-total pt-2 pb-2 border-bottom">
+                                    <th>Tổng tiền</th>
+                                    <td data-title="Total">
+                                        <span class="price-amount amount text-dark ps-5">
+                                            <bdi>
+                                                {{amount| currency:'
+                                                ':'symbol':'1.0-0'}}VNĐ
+                                            </bdi>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="button-wrap row g-2">
+                        <div class="billing-details">
+                            <label for="fname">Họ tên</label>
+                            <input type="text" id="fname" name="firstname" class="form-control mt-2 mb-4 ps-3">
+                            <label for="lname">Email</label>
+                            <input type="text" id="lname" name="lastname" class="form-control mt-2 mb-4 ps-3">
+                            <label for="cname">Số điện thoại</label>
+                            <input type="text" id="cname" name="companyname" class="form-control mt-2 mb-4">
+                            <label for="cname">Địa chỉ</label>
+                            <input type="text" id="cname" name="companyname" class="form-control mt-2 mb-4">
+                        </div>
+                        <div class="col-md-12"><button class="btn btn-primary p-3 text-uppercase rounded-1 w-100">Đặt
+                                hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
