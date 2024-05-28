@@ -11,6 +11,6 @@ export class ProductsService {
   constructor(private http : HttpClient) { }
 
   getAllData():Observable<any>{
-    return this.http.get<any>(`${_shared.api}/api/Product/get-all-product`)
+    return this.http.get<any>(`${_shared.api}/*api/Product`)
   }
 }
