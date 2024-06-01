@@ -105,14 +105,9 @@
               <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
                 aria-expanded="false">Sản Phẩm</a>
               <ul class="dropdown-menu" aria-labelledby="pages">
-                <li><a href="dog-page" class="dropdown-item">Chó Cảnh<span
-                      class="badge bg-success text-dark ms-2">HOT</span></a></li>
-                <li><a href="cat-page" class="dropdown-item">Mèo Cảnh<span
-                      class="badge bg-success text-dark ms-2">HOT</span></a></li>
-                <li><a href="food-page" class="dropdown-item">Đồ Ăn<span
-                      class="badge bg-success text-dark ms-2">HOT</span></a></li>
-                <li><a href="accessory-page" class="dropdown-item">Phụ Kiện<span
-                      class="badge bg-success text-dark ms-2">HOT</span></a></li>
+                <li *ngFor="let item of categoris">
+                  <a href="" class="dropdown-item"> {{item.name}} <span class="badge bg-success text-dark ms-2">HOT</span></a>
+                </li>
 
               </ul>
             </li>

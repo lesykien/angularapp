@@ -51,17 +51,16 @@
                                         </a>
                                     </div>
                                 </div>
-                                <p class="mb-0">Hoặc với email</p>
+                                <p class="mb-0">Hoặc với tên đăng nhập</p>
                                 <hr class="my-1">
                                 <form id="form1" [formGroup]="LoginForm" class="form-group flex-wrap ">
                                     <div class="form-input col-lg-12 my-4">
-                                        <input type="email" id="exampleInputEmail1" name="email"
-                                            placeholder="Nhập email" formControlName="email"
+                                        <input type="text" id="exampleInputEmail1" name="username"
+                                            placeholder="Nhập tên đăng nhập" formControlName="username"
                                             class="form-control mb-3 p-4">
-                                        <p style="color: red;" *ngIf="LoginForm.get('email')?.errors?.['required']">Bạn
-                                            chưa nhập email</p>
-                                        <p style="color: red;" *ngIf="LoginForm.get('email')?.errors?.['email']">Email
-                                            không đúng định dạng</p>
+                                        <p style="color: red;" *ngIf="LoginForm.get('username')?.errors?.['required']">
+                                            Bạn
+                                            chưa nhập tên đăng nhập</p>
                                         <input type="password" id="inputPassword1" placeholder="Nhập mật khẩu"
                                             formControlName="password" class="form-control mb-3 p-4"
                                             aria-describedby="passwordHelpBlock">
@@ -74,10 +73,8 @@
                                             </div>
                                         </label>
                                         <div class="d-grid my-3">
-                                            <button class="btn btn-dark btn-lg rounded-1"
-                                                [disabled]="LoginForm.invalid"
-                                                (click)="SumbitForm()"
-                                                >Đăng nhập</button>
+                                            <button class="btn btn-dark btn-lg rounded-1" [disabled]="LoginForm.invalid"
+                                                (click)="SumbitForm()">Đăng nhập</button>
                                         </div>
                                     </div>
                                 </form>
@@ -121,32 +118,29 @@
                                             hộ tên</p>
                                         <input type="email" id="exampleInputEmail1" name="email"
                                             placeholder="Nhập email" class="form-control mb-3 p-4"
-                                            formControlName="email"
-                                            >
+                                            formControlName="email">
 
                                         <p style="color: red;" *ngIf="SiginForm.get('email')?.errors?.['required']">
                                             Bạn chưa nhập
                                             email</p>
                                         <p style="color: red;" *ngIf="SiginForm.get('email')?.errors?.['email']">
-                                           Email không đúng định dạng</p>
+                                            Email không đúng định dạng</p>
                                         <input type="password" id="inputPassword1" placeholder="Nhập mật khẩu"
                                             class="form-control mb-3 p-4" aria-describedby="passwordHelpBlock"
-                                            formControlName="password"
-                                            >
-                                            <p style="color: red;" *ngIf="SiginForm.get('password')?.errors?.['required']">
-                                                Bạn chưa nhập mật khẩu</p>
+                                            formControlName="password">
+                                        <p style="color: red;" *ngIf="SiginForm.get('password')?.errors?.['required']">
+                                            Bạn chưa nhập mật khẩu</p>
                                         <input type="password" id="inputPassword2" placeholder="Lặp lại mật khẩu"
                                             class="form-control mb-3 p-4" aria-describedby="passwordHelpBlock"
                                             formControlName="confirm_password">
-                                            <p style="color: red;" *ngIf="SiginForm.get('confirm_password')?.errors?.['required']">
-                                                Bạn chưa xác nhận mật khẩu</p>
+                                        <p style="color: red;"
+                                            *ngIf="SiginForm.get('confirm_password')?.errors?.['required']">
+                                            Bạn chưa xác nhận mật khẩu</p>
                                         <label class="py-3 d-flex flex-wrap justify-content-between">
                                         </label>
                                         <div class="d-grid my-3">
-                                            <button class="btn btn-dark btn-lg rounded-1"
-                                            [disabled]="SiginForm.invalid"
-                                            (click)="SumbitSignin()"
-                                            >Đăng kí ngay</button>
+                                            <button class="btn btn-dark btn-lg rounded-1" [disabled]="SiginForm.invalid"
+                                                (click)="SumbitSignin()">Đăng kí ngay</button>
                                         </div>
 
                                     </div>

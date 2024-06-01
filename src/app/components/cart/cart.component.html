@@ -49,9 +49,7 @@
                                 <div class="input-group product-qty align-items-center w-50">
                                     <span class="input-group-btn">
                                         <button type="button" class="quantity-left-minus btn btn-light btn-number"
-                                            data-type="minus"
-                                            (click)="ChangeQuantity(item, 'minus')"
-                                            >
+                                            data-type="minus" (click)="ChangeQuantity(item, 'minus')">
                                             -
                                         </button>
                                     </span>
@@ -105,19 +103,27 @@
                         </table>
                     </div>
                     <div class="button-wrap row g-2">
-                        <div class="billing-details">
-                            <label for="fname">Họ tên</label>
-                            <input type="text" id="fname" name="firstname" class="form-control mt-2 mb-4 ps-3">
-                            <label for="lname">Email</label>
-                            <input type="text" id="lname" name="lastname" class="form-control mt-2 mb-4 ps-3">
-                            <label for="cname">Số điện thoại</label>
-                            <input type="text" id="cname" name="companyname" class="form-control mt-2 mb-4">
-                            <label for="cname">Địa chỉ</label>
-                            <input type="text" id="cname" name="companyname" class="form-control mt-2 mb-4">
-                        </div>
-                        <div class="col-md-12"><button class="btn btn-primary p-3 text-uppercase rounded-1 w-100">Đặt
-                                hàng</button>
-                        </div>
+                        <form [formGroup]="FormOrder">
+                            <div class="billing-details">
+                                <label for="fname">Họ tên</label>
+                                <input type="text" id="fname" name="firstname" formControlName="fullname"
+                                    class="form-control mt-2 mb-4 ps-3">
+                                <label for="lname">Email</label>
+                                <input type="text" id="lname" formControlName="email"
+                                    class="form-control mt-2 mb-4 ps-3">
+                                <label for="cname">Số điện thoại</label>
+                                <input type="text" id="cname" formControlName="phone" name="companyname"
+                                    class="form-control mt-2 mb-4">
+                                <label for="cname">Địa chỉ</label>
+                                <input type="text" id="cname" formControlName="address" name="companyname"
+                                    class="form-control mt-2 mb-4">
+                            </div>
+                            <div class="col-md-12">
+                                <button (click)="Create()" class="btn btn-primary p-3 text-uppercase rounded-1 w-100">
+                                    Đặt hàng
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

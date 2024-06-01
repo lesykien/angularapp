@@ -1,3 +1,3 @@
 export const _shared = {
-  api: 'https://localhost:7152',
+  api: 'https://localhost:7192',
 };

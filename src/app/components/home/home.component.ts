@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { _cart, cartLocal } from '../../Shared/Cart.shared';
 import { products } from '../../model/products.model';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,10 @@ import { products } from '../../model/products.model';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  constructor(private _product: ProductsService) {}
+  constructor(
+    private _product: ProductsService,
+    private _category: CategoryService
+  ) {}
 
   ListProduct: products[] = [];
   listCart: cartLocal[] = [];

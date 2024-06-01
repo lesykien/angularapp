@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { response } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +10,14 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-  constructor(private form: FormBuilder) {}
+  constructor(
+    private form: FormBuilder,
+    private _user: UserService,
+    private router: Router
+  ) {}
 
   LoginForm = this.form.group({
-    email: ['', [Validators.required, Validators.email]],
+    username: ['', [Validators.required]],
     password: ['', Validators.required],
   });
   SiginForm = this.form.group({
@@ -23,7 +30,14 @@ export class LoginComponent implements OnInit {
 
   SumbitForm() {
     let request: any = this.LoginForm.value;
-    console.log(request);
+    let form: FormData = new FormData();
+    form.append('psw', request.password);
+    this._user.login(form, request.username).subscribe((response) => {
+      if (response) {
+        localStorage.setItem('id', response.id.toString());
+        this.router.navigate(['/']);
+      }
+    });
   }
 
   SumbitSignin() {

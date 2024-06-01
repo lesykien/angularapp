@@ -5,7 +5,7 @@ interface products {
   id: number;
   idCategory: number;
   isPrimary: boolean;
-  link: string;
+  link: string[];
   name: string;
   nameCategory: string;
   popular: string;
