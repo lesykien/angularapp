@@ -1,4 +1,6 @@
+import { Observable } from 'rxjs';
 import { cartLocal } from '../Shared/Cart.shared';
+import { run } from 'node:test';
 
 interface orderItem {
   idProduct: number;
@@ -9,6 +11,27 @@ interface order {
   idAccount: number;
   totalAmount: number;
   orderItems: orderItem[];
+}
+
+interface orderDTOs {
+  id: number;
+  total: number;
+  time: string;
+  statusDelivery: number;
+  accountId: number;
+}
+interface orderItemDTOs {
+  quantity: number;
+  id: number;
+  name: string;
+  price: number;
+}
+interface orderSingle {
+  id: number;
+  accountId: number;
+  total: number;
+  statusDelivery: number;
+  detal: orderItemDTOs[];
 }
 class _orderModel {
   static CreateItem(listItem: cartLocal[]): orderItem[] {
@@ -39,4 +62,4 @@ class _orderModel {
     };
   }
 }
-export { order, _orderModel };
+export { order, _orderModel, orderDTOs, orderSingle };

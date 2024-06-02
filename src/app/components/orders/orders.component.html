@@ -1,0 +1,118 @@
+<section id="banner" class="py-3" style="background: #F9F3EC;">
+    <div class="container">
+        <div class="hero-content py-5 my-3">
+            <h2 class="display-1 mt-3 mb-0">Tài khoản</h2>
+        </div>
+    </div>
+</section>
+<section class="contact-us">
+    <div class="container py-5 my-5">
+        <div class="row">
+            <div class="contact-info col-lg-6 pb-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="card-title text-uppercase">STT</th>
+                            <th scope="col" class="card-title text-uppercase">
+                                Thời gian
+                            </th>
+                            <th scope="col" class="card-title text-uppercase">
+                                Tổng tiền
+                            </th>
+                            <th scope="col" class="card-title text-uppercase">
+                                Đơn hàng
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of orders; let i = index">
+                            <td class="py-4 align-middle">
+                                {{i + 1}}
+                            </td>
+                            <td class="py-4 align-middle">
+                                <div class="total-price">
+                                    <span class="secondary-font fw-medium">
+                                        {{item.time}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="py-4 align-middle">
+                                <div class="total-price">
+                                    <span class="secondary-font fw-medium">
+                                        {{item.total | currency:'
+                                        ':'symbol':'1.0-0'}}đ
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="py-4 align-middle">
+                                <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                                    (click)="GetById(item.id)" aria-controls="offcanvasCart"
+                                    [class.text-primary]="item.statusDelivery == 3" class="btn-cart btn bg-transparent"
+                                    style="color: red;">
+                                    {{item.statusDelivery == 3 ? 'Giao thành công' : 'Đơn bị hủy'}}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="inquiry-item col-lg-6">
+                <div class="rounded-5">
+                    <h2 class="text-dark">Tài khoản</h2>
+                    <p>Thông tin tài khoản của bạn</p>
+                    <form [formGroup]="FormUser" class="form-group flex-wrap">
+                        <div class="form-input col-lg-12 d-flex mb-3">
+                            <input type="text" name="name" formControlName="fullname" class="form-control ps-3 me-3"
+                                required="">
+                            <input type="email" name="email" formControlName="email" class="form-control ps-3"
+                                required="">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <input type="text" name="phone" formControlName="phone" class="form-control ps-3"
+                                required="">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <input type="text" name="subject" formControlName="address" class="form-control ps-3"
+                                required="">
+                        </div>
+                    </form>
+                    <div class="d-grid">
+                        <button (click)="LogOut()" class="btn btn-dark btn-lg rounded-1">Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
+    <div class="offcanvas-header justify-content-center">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Chi tiết đơn hàng</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <button class="list-group-item d-flex justify-content-between lh-sm" 
+                [routerLink]="['/single-product', item.id]"
+                *ngFor="let item of orderById?.detal">
+                    <div>
+                        <h6 class="my-0"> {{item.name}} </h6>
+                        <small class="text-body-secondary"> x {{item.quantity}} </small>
+                    </div>
+                    <span class="text-body-secondary"> {{
+                        item.quantity * item.price
+                        | currency:'
+                        ':'symbol':'1.0-0'}}đ </span>
+                </button>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-bold">Tổng Tiền</span>
+                    <strong> {{orderById?.total | currency:'
+                        ':'symbol':'1.0-0'}}đ </strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

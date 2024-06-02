@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { CartComponent } from './components/cart/cart.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'order-user', component: OrdersComponent },
 ];
 
 @NgModule({

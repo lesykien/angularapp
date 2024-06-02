@@ -61,7 +61,16 @@ export class SingleProductComponent implements OnInit {
     let newItem: products = _productsModel.CreateProdycts(
       item as productsDetal
     );
-    _cart.AddToCartLocal('cart', newItem, quantity as number | undefined);
+    let id = localStorage.getItem('id');
+    if (id) {
+      _cart.AddToCartLocal(
+        `cart${id}`,
+        newItem,
+        quantity as number | undefined
+      );
+    } else {
+      _cart.AddToCartLocal('cart', newItem, quantity as number | undefined);
+    }
     window.location.reload();
   }
 }

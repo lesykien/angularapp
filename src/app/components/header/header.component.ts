@@ -24,7 +24,12 @@ export class HeaderComponent implements OnInit {
   }
 
   LoadCountItemCart() {
-    this.listItem = _cart.LoadItemInCart('cart');
+    let id = localStorage.getItem('id');
+    if (id) {
+      this.listItem = _cart.LoadItemInCart(`cart${id}`);
+    } else {
+      this.listItem = _cart.LoadItemInCart('cart');
+    }
   }
   LoadCategorys() {
     this._category.getData().subscribe((response) => {

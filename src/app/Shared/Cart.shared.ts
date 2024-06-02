@@ -5,6 +5,7 @@ interface cartLocal {
   name: string;
   price: number;
   quantity: number;
+  link : string
 }
 
 class _cart {
@@ -14,6 +15,7 @@ class _cart {
       name: item.name,
       price: item.price,
       quantity: quantity == undefined ? 1 : (quantity as number),
+      link : item.link[0]
     };
   }
 
@@ -23,6 +25,7 @@ class _cart {
       name: item.name,
       price: item.price,
       quantity: item.quantity + 1,
+      link : item.link
     };
   }
 

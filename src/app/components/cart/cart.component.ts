@@ -3,7 +3,7 @@ import { _cart, cartLocal } from '../../Shared/Cart.shared';
 import { products } from '../../model/products.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { response } from 'express';
+import e, { response } from 'express';
 import { user } from '../../model/user.model';
 import { _orderModel, order } from '../../model/order.model';
 import { OrderService } from '../../services/order.service';
@@ -35,7 +35,12 @@ export class CartComponent implements OnInit {
   // load sản phẩm trong giỏ hàng
   LoadCart() {
     this.amount = 0;
-    this.listCart = _cart.LoadItemInCart('cart');
+    let id = localStorage.getItem('id');
+    if (id) {
+      this.listCart = _cart.LoadItemInCart(`cart${id}`);
+    } else {
+      this.listCart = _cart.LoadItemInCart('cart');
+    }
     // tính tổng tiền
     for (let item of this.listCart) {
       this.amount += item.price * item.quantity;
@@ -47,15 +52,28 @@ export class CartComponent implements OnInit {
     window.location.reload();
   }
   RemoveItem(item: cartLocal) {
-    _cart.Remove(item, 'cart');
+    let id = localStorage.getItem('id');
+    if (id) {
+      _cart.Remove(item, `cart${id}`);
+    } else {
+      _cart.Remove(item, 'cart');
+    }
     this.LoadCart();
   }
+
   ChangeQuantity(item: any, type: string) {
+    let id = localStorage.getItem('id');
+    let key: string = '';
+    if (id) {
+      key = `cart${id}`;
+    } else {
+      key = `cart`;
+    }
     if (type == 'plus') {
-      _cart.AddToCartLocal('cart', item);
+      _cart.AddToCartLocal(key, item);
       this.LoadCart();
     } else {
-      _cart.MiniusQuantity(item, 'cart');
+      _cart.MiniusQuantity(item, key);
       this.LoadCart();
     }
   }

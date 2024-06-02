@@ -39,7 +39,12 @@ export class HomeComponent implements OnInit {
   }
   // thêm sản phẩm vào giỏ hàng
   AddToCart(item: products) {
-    _cart.AddToCartLocal('cart', item);
+    let id = localStorage.getItem('id');
+    if (id) {
+      _cart.AddToCartLocal(`cart${id}`, item);
+    } else {
+      _cart.AddToCartLocal('cart', item);
+    }
     window.location.reload();
   }
 }
