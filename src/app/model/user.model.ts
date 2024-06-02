@@ -7,4 +7,17 @@ interface user {
   phoneNumber: string;
 }
 
-export { user };
+class _userModel {
+  static newUser(): user {
+    return {
+      accountType: false,
+      address: '',
+      email: '',
+      fullName: '',
+      id: 0,
+      phoneNumber: '',
+    };
+  }
+}
+
+export { user, _userModel };

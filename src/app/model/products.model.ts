@@ -3,7 +3,7 @@ interface products {
   description: string;
   hair: string;
   id: number;
-  idCategory: number;
+  categoryId: number;
   isPrimary: boolean;
   link: string[];
   name: string;
@@ -14,5 +14,45 @@ interface products {
   size: string;
   statusHair: string;
 }
+interface productsDetal {
+  name: string;
+  price: number;
+  id: number;
+  status: string;
+  stock: number;
+  hair: string;
+  categoryId: number;
+  description: string;
+  statusHair: string;
+  popular: string;
+  size: string;
+  sex: boolean;
+  color: string;
+  link: productsLink[];
+}
+interface productsLink {
+  link: string;
+}
 
-export { products };
+class _productsModel {
+  static CreateProdycts(item: productsDetal): products {
+    return {
+      color: item.color,
+      description: item.description,
+      hair: item.hair,
+      id: item.id,
+      categoryId: item.categoryId,
+      isPrimary: true,
+      link: [],
+      name: item.name,
+      nameCategory: '',
+      popular: '',
+      price: item.price,
+      sex: item.sex,
+      size: item.size,
+      statusHair: item.statusHair,
+    };
+  }
+}
+
+export { products, productsDetal, _productsModel };

@@ -8,12 +8,12 @@ interface cartLocal {
 }
 
 class _cart {
-  static NewItemCart(item: products): cartLocal {
+  static NewItemCart(item: products, quantity?: number): cartLocal {
     return {
       id: item.id,
       name: item.name,
       price: item.price,
-      quantity: 1,
+      quantity: quantity == undefined ? 1 : (quantity as number),
     };
   }
 
@@ -31,10 +31,13 @@ class _cart {
     list.splice(index, 1);
   }
 
-  static AddToCartLocal(key: string, item: products) {
+  static AddToCartLocal(key: string, item: products, quantity?: number) {
     let local: any = localStorage.getItem(key);
     let list: cartLocal[] = [];
-    let newitem: cartLocal = this.NewItemCart(item);
+    let newitem: cartLocal = this.NewItemCart(
+      item,
+      quantity == undefined ? 1 : quantity
+    );
     if (!local) {
       list.push(newitem);
       localStorage.setItem(key, JSON.stringify(list));

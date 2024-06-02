@@ -13,7 +13,7 @@ import { _cart } from '../../Shared/Cart.shared';
 export class ShopComponent implements OnInit {
   constructor(
     private _products: ProductsService,
-    private _categorys: CategoryService
+    private _categorys: CategoryService, 
   ) {}
   list: number[] = [1, 1, 1, 1, 1, 1, 1];
   listProducts: products[] = [];

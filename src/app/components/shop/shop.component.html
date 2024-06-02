@@ -15,7 +15,7 @@
                 <div class="product-grid row ">
                     <div class="col-md-4 my-4" *ngFor="let item of listProducts">
                         <div class="card position-relative">
-                            <a href="single-product.html" style="width: 100%; height: 20rem;">
+                            <a [routerLink]="['/single-product/' + item.id]" style="width: 100%; height: 20rem;">
                                 <img src="https://localhost:7192/api/GetImageControllers/get-images-cart/{{item.link[0].link}}"
                                     class="img-fluid rounded-4" alt="image"
                                     style="width: 100%; height: 100%; object-fit: cover;">
@@ -32,7 +32,8 @@
                                         ':'symbol':'1.0-0'}} VND</h3>
 
                                     <div class="d-flex flex-wrap mt-3">
-                                        <button (click)="AddToCart(item)" class="btn-cart me-3 px-4 pt-3 pb-3 border-1 bg-transparent">
+                                        <button (click)="AddToCart(item)"
+                                            class="btn-cart me-3 px-4 pt-3 pb-3 border-1 bg-transparent">
                                             <h5 class="text-uppercase m-0">
                                                 Thêm vào giỏ hàng
                                             </h5>
