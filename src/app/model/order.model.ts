@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { cartLocal } from '../Shared/Cart.shared';
 import { run } from 'node:test';
+import moment from 'moment';
 
 interface orderItem {
   idProduct: number;
@@ -60,6 +61,21 @@ class _orderModel {
       totalAmount: this.Amount(listItem),
       orderItems: this.CreateItem(listItem),
     };
+  }
+
+  static ConvertData(listItem: orderDTOs[]): orderDTOs[] {
+    let list: orderDTOs[] = [];
+    listItem.forEach((item) => {
+      let order: orderDTOs = {
+        id: item.id,
+        total: item.total,
+        time: moment(item.time).format('DD/MM/YYYY HH:mm:ss'),
+        statusDelivery: item.statusDelivery,
+        accountId: item.accountId,
+      };
+      list.push(order);
+    });
+    return list;
   }
 }
 export { order, _orderModel, orderDTOs, orderSingle };

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../services/order.service';
 import { Router } from '@angular/router';
-import { orderDTOs, orderSingle } from '../../model/order.model';
+import { _orderModel, orderDTOs, orderSingle } from '../../model/order.model';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { user } from '../../model/user.model';
@@ -40,7 +40,9 @@ export class OrdersComponent implements OnInit {
   }
   LoadOrder(id: number) {
     this._order.getData().subscribe((response) => {
-      this.orders = response.filter((a) => a.accountId == id);
+      this.orders = _orderModel.ConvertData(
+        response.filter((a) => a.accountId == id)
+      );
     });
   }
   GetById(id: number) {

@@ -95,9 +95,8 @@
                 <span class="text-primary">Chi tiết đơn hàng</span>
             </h4>
             <ul class="list-group mb-3">
-                <button class="list-group-item d-flex justify-content-between lh-sm" 
-                [routerLink]="['/single-product', item.id]"
-                *ngFor="let item of orderById?.detal">
+                <button class="list-group-item d-flex justify-content-between lh-sm"
+                    [routerLink]="['/single-product', item.id]" *ngFor="let item of orderById?.detal">
                     <div>
                         <h6 class="my-0"> {{item.name}} </h6>
                         <small class="text-body-secondary"> x {{item.quantity}} </small>
