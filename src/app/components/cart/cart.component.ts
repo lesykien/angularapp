@@ -98,9 +98,9 @@ export class CartComponent implements OnInit {
     let id: number = Number(localStorage.getItem('id'));
     if (id) {
       let request: order = _orderModel.CreateRequest(id, this.listCart);
-      this._order.create(request).subscribe((response) => {
-        console.log(response);
-      });
+      this._order.create(request).subscribe((response) => {});
+      localStorage.removeItem(`cart${id}`);
+      window.location.reload();
       return;
     }
     alert('Bạn phải đăng nhập mới có thể đặt hàng');
