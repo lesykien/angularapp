@@ -210,8 +210,9 @@
         <div class="swiper-slide" *ngFor="let item of ListProduct">
           <div class="card position-relative">
             <a [routerLink]="['/single-product/' + item.id]" style="width: 100%; height: 20rem;">
-              <img src="https://localhost:7192/api/GetImageControllers/get-images-cart/{{item.link[0].link}}"
-                class="img-fluid rounded-4" alt="image" style="height: 100%; width: 100%; object-fit: cover;">
+              <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link[0].link}}"
+                *ngIf="item.link.length > 0" class="img-fluid rounded-4" alt="image"
+                style="height: 100%; width: 100%; object-fit: cover;">
             </a>
             <div class="card-body p-0">
               <a href="single-product.html">

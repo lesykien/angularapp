@@ -11,8 +11,6 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   getData(): Observable<categoryDTOs[]> {
-    return this.http.get<categoryDTOs[]>(
-      `${_shared.api}/api/CategoryControllers`
-    );
+    return this.http.get<categoryDTOs[]>(`${_shared.api}/api/Category`);
   }
 }
