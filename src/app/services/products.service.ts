@@ -16,4 +16,10 @@ export class ProductsService {
   getById(id: number): Observable<productsDetal[]> {
     return this.http.get<productsDetal[]>(`${_shared.api}/*api/Product/${id}`);
   }
+
+  getShop(id: number, page: number): Observable<products[]> {
+    return this.http.get<products[]>(
+      `${_shared.api}/*api/Product/idCategory/${id}/page/${page}`
+    );
+  }
 }

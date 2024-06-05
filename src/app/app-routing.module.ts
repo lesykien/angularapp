@@ -14,13 +14,13 @@ import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'dog-page', component: DogPageComponent },
+  { path: 'dog-page/:id', component: DogPageComponent },
   { path: 'cat-page', component: CatPageComponent },
   { path: 'accessory-page', component: AccessoryComponent },
   { path: 'food-page', component: FoodPageComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'shop', component: ShopComponent },
+  { path: 'shop/:id/:page', component: ShopComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: 'cart', component: CartComponent },
   { path: 'order-user', component: OrdersComponent },
