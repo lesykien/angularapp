@@ -7,65 +7,20 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 my-4 my-md-0">
-        <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-          <h3 class="secondary-font text-primary m-0">20</h3>
-          <p class="secondary-font fs-6 m-0">Feb</p>
-
-        </div>
+      <div class="col-md-4 my-4 my-md-0" *ngFor="let item of listBlogs">
         <div class="card position-relative">
-          <a href="single-post.html"><img src="./assets/images/blog1.jpg" class="img-fluid rounded-4" alt="image"></a>
+          <a [routerLink]="['/single-blog/' + item.id]"><img
+              src="https://localhost:7192/api/GetImage/get-images-cart/{{item.image}}" class="img-fluid rounded-4"
+              alt="image"></a>
           <div class="card-body p-0">
-            <a href="single-post.html">
-              <h3 class="card-title pt-4 pb-3 m-0">10 Lợi ích khi nuôi thú cưng</h3>
+            <a [routerLink]="['/single-blog/' + item.id]">
+              <h3 class="card-title pt-4 pb-3 m-0">
+                {{item.headline}}
+              </h3>
             </a>
-
             <div class="card-text">
-              <p class="blog-paragraph fs-6">Giảm căng thẳng mệt mỏi</p>
-              <a href="single-post.html" class="blog-read">đọc thêm</a>
+              <a [routerLink]="['/single-blog/' + item.id]" class="blog-read">đọc thêm</a>
             </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 my-4 my-md-0">
-        <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-          <h3 class="secondary-font text-primary m-0">21</h3>
-          <p class="secondary-font fs-6 m-0">Feb</p>
-
-        </div>
-        <div class="card position-relative">
-          <a href="single-post.html"><img src="./assets/images/blog2.jpg" class="img-fluid rounded-4" alt="image"></a>
-          <div class="card-body p-0">
-            <a href="single-post.html">
-              <h3 class="card-title pt-4 pb-3 m-0">Làm sao để biết thú cưng có đói không ?</h3>
-            </a>
-
-            <div class="card-text">
-              <p class="blog-paragraph fs-6">Có những biểu hiện lạ</p>
-              <a href="single-post.html" class="blog-read">đọc thêm</a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 my-4 my-md-0">
-        <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-          <h3 class="secondary-font text-primary m-0">22</h3>
-          <p class="secondary-font fs-6 m-0">Feb</p>
-
-        </div>
-        <div class="card position-relative">
-          <a href="single-post.html"><img src="./assets/images/blog3.jpg" class="img-fluid rounded-4" alt="image"></a>
-          <div class="card-body p-0">
-            <a href="single-post.html">
-              <h3 class="card-title pt-4 pb-3 m-0">Những căn nhà tuyệt vời dành cho thú cưng</h3>
-            </a>
-
-            <div class="card-text">
-              <p class="blog-paragraph fs-6">Top 1: Nhà Sàn</p>
-            </div>
-
           </div>
         </div>
       </div>

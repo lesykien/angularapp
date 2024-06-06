@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import {
   _productsModel,
@@ -16,12 +16,18 @@ import { _cart } from '../../Shared/Cart.shared';
 export class SingleProductComponent implements OnInit {
   constructor(
     private pramaster: ActivatedRoute,
-    private _products: ProductsService
+    private _products: ProductsService,
+    private router: Router
   ) {}
   singleProduct?: productsDetal;
   products: products[] = [];
   quantity: number = 1;
   ngOnInit(): void {
+    this.router.events.subscribe((envent) => {
+      if (envent instanceof NavigationEnd) {
+        this.LoadPage();
+      }
+    });
     this.LoadPage();
   }
 

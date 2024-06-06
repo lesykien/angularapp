@@ -1,0 +1,71 @@
+<section id="banner" class="py-3" style="background: #F9F3EC;">
+    <div class="container">
+        <div class="hero-content py-5 my-3">
+            <h2 class="display-1 mt-3 mb-0"> Bài viết </h2>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="mt-5">
+            <div class="post-meta">
+            </div>
+            <h1 class="page-title">
+                {{item.headline}}
+            </h1>
+        </div>
+    </div>
+</section>
+<div>
+    <div class="container">
+        <div class="row">
+            <main class="post-grid">
+                <div class="row">
+                    <article class="post-item">
+                        <div class="post-content">
+                            <div class="post-thumbnail mb-5">
+                                <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.image}}"
+                                    alt="single-post" class="img-fluid">
+                            </div>
+                            <div class="post-description py-4" [innerHTML]="item.content">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<section id="latest-blog" class="my-5">
+    <div class="container py-5 my-5">
+        <div class="row mt-5">
+            <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+                <h2 class="display-3 fw-normal"> Bài viết tương tự </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 my-4 my-md-0" *ngFor="let item of blog">
+                <div class="card position-relative">
+                    <a [routerLink]="['/single-blog/' + item.id]"><img
+                            src="https://localhost:7192/api/GetImage/get-images-cart/{{item.image}}"
+                            class="img-fluid rounded-4" alt="image"></a>
+                    <div class="card-body p-0">
+                        <a [routerLink]="['/single-blog/' + item.id]">
+                            <h3 class="card-title pt-4 pb-3 m-0">
+                                {{item.headline}}
+                            </h3>
+                        </a>
+
+                        <div class="card-text">
+                            <a [routerLink]="['/single-blog/' + item.id]" class="blog-read">
+                                Đọc thêm
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -11,6 +11,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { SingleBlogComponent } from './components/single-blog/single-blog.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: 'cart', component: CartComponent },
   { path: 'order-user', component: OrdersComponent },
+  { path: 'single-blog/:id', component: SingleBlogComponent },
 ];
 
 @NgModule({

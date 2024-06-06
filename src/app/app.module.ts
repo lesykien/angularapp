@@ -20,6 +20,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { SingleBlogComponent } from './components/single-blog/single-blog.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     SingleProductComponent,
     CartComponent,
     OrdersComponent,
+    SingleBlogComponent,
   ],
   imports: [
     BrowserModule,
