@@ -125,6 +125,27 @@
                                             email</p>
                                         <p style="color: red;" *ngIf="SiginForm.get('email')?.errors?.['email']">
                                             Email không đúng định dạng</p>
+                                        <input type="text" id="exampleInputEmail1" name=""
+                                            placeholder="Nhập tên đăng nhập" class="form-control mb-3 p-4"
+                                            formControlName="username">
+
+                                        <p style="color: red;" *ngIf="SiginForm.get('username')?.errors?.['required']">
+                                            Bạn chưa nhập
+                                            tên đăng nhập</p>
+                                        <input type="text" id="exampleInputEmail1" name="email"
+                                            placeholder="Nhập số điện thoại" class="form-control mb-3 p-4"
+                                            formControlName="phone">
+
+                                        <p style="color: red;" *ngIf="SiginForm.get('phone')?.errors?.['required']">
+                                            Bạn chưa nhập số điện thoại</p>
+
+                                        <input type="text" id="exampleInputEmail1" name="email"
+                                            placeholder="Nhập địa chỉ" class="form-control mb-3 p-4"
+                                            formControlName="address">
+
+                                        <p style="color: red;" *ngIf="SiginForm.get('address')?.errors?.['required']">
+                                            Bạn chưa nhập
+                                            địa chỉ</p>
                                         <input type="password" id="inputPassword1" placeholder="Nhập mật khẩu"
                                             class="form-control mb-3 p-4" aria-describedby="passwordHelpBlock"
                                             formControlName="password">

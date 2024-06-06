@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { _shared } from '../Shared/Shared';
-import { user } from '../model/user.model';
+import { createDTOs, user } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,5 +19,9 @@ export class UserService {
 
   getById(id: number): Observable<user> {
     return this.http.get<user>(`${_shared.api}/api/Account/${id}`);
+  }
+
+  create(model: createDTOs): Observable<any> {
+    return this.http.post(`${_shared.api}/api/Account`, model);
   }
 }

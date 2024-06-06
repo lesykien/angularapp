@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { response } from 'express';
 import { Router } from '@angular/router';
+import { _userModel, createDTOs } from '../../model/user.model';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,9 @@ export class LoginComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     confirm_password: ['', Validators.required],
+    phone: ['', Validators.required],
+    address: ['', Validators.required],
+    username: ['', Validators.required],
   });
   ngOnInit(): void {}
 
@@ -42,6 +46,14 @@ export class LoginComponent implements OnInit {
 
   SumbitSignin() {
     let request: any = this.SiginForm.value;
-    console.log(request);
+    if (request.password == request.confirm_password) {
+      let model: createDTOs = _userModel.create(request);
+      this._user.create(model).subscribe((response) => {
+        if (response.id != 0) {
+          alert('Đăng kí thành công');
+          window.location.reload();
+        }
+      });
+    }
   }
 }
