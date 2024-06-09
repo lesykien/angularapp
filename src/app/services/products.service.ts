@@ -22,4 +22,8 @@ export class ProductsService {
       `${_shared.api}/*api/Product/idCategory/${id}/page/${page}`
     );
   }
+
+  getBestSeller(): Observable<products[]> {
+    return this.http.get<products[]>(`${_shared.api}/*api/Product/best-seller`);
+  }
 }

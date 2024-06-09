@@ -15,4 +15,8 @@ export class BlogService {
   getById(id: number): Observable<any> {
     return this.http.get<any>(`${_shared.api}/api/Blog/get-blog-by-id/${id}`);
   }
+
+  getByNumber(): Observable<any[]> {
+    return this.http.get<any[]>(`${_shared.api}/api/Blog/get-blog-by-number/3`);
+  }
 }
