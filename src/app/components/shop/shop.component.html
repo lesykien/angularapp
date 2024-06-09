@@ -16,8 +16,8 @@
                     <div class="col-md-4 my-4" *ngFor="let item of listProducts">
                         <div class="card position-relative">
                             <a [routerLink]="['/single-product/' + item.id]" style="width: 100%; height: 20rem;">
-                                <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link[0].link}}"
-                                    *ngIf="item.link.length > 0" class="img-fluid rounded-4" alt="image"
+                                <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link}}"
+                                    *ngIf="item.link" class="img-fluid rounded-4" alt="image"
                                     style="width: 100%; height: 100%; object-fit: cover;">
                             </a>
                             <div class="card-body p-0">
