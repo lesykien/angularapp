@@ -101,28 +101,8 @@
             <li class="nav-item">
               <a [routerLink]="['/shop/0/1']" class="nav-link">Cửa hàng</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
-                aria-expanded="false">Sản Phẩm</a>
-              <ul class="dropdown-menu" aria-labelledby="pages">
-                <li *ngFor="let item of categoris">
-                  <a [routerLink]="['dog-page/' + item.id]" class="dropdown-item"> {{item.name}} <span
-                      class="badge bg-success text-dark ms-2">HOT</span></a>
-                </li>
-
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Dịch Vụ</a>
-            </li>
             <li class="nav-item">
               <a [routerLink]="['/blog']" class="nav-link">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="contact.html" class="nav-link">Liên Hệ</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Khác</a>
             </li>
           </ul>
 
