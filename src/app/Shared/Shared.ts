@@ -1,3 +1,3 @@
 export const _shared = {
-  api: 'https://localhost:7192',
+  api: 'https://api-cs5-server.tryasp.net',
 };
