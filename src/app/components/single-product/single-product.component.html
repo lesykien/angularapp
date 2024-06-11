@@ -20,7 +20,7 @@
                                     *ngFor="let item of singleProduct?.link"
                                     style="width: 624px; opacity: 1; transform: translate3d(0px, 0px, 0px);"
                                     role="group" aria-label="1 / 4">
-                                    <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link}}"
+                                    <img src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.link}}"
                                         class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                 <div class="swiper-slide swiper-slide-visible swiper-slide-active swiper-slide-thumb-active"
                                     style="width: 202.667px; margin-right: 8px;" role="group" aria-label="1 / 4"
                                     *ngFor="let item of singleProduct?.link">
-                                    <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link}}"
+                                    <img src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.link}}"
                                         class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                         <a _ngcontent-ng-c2327624737="" [routerLink]="['/single-product/' + item.id]"
                             style="width: 100%; height: 20rem;">
                             <img _ngcontent-ng-c2327624737="" *ngIf="item.link.length > 0"
-                                src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link[0].link}}"
+                                src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.link[0].link}}"
                                 style="width: 100%; height: 100%; object-fit: cover;" alt="image"
                                 class="img-fluid rounded-4">
                         </a>

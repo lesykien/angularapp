@@ -24,7 +24,7 @@
                     <article class="post-item">
                         <div class="post-content">
                             <div class="post-thumbnail mb-5">
-                                <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.image}}"
+                                <img src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.image}}"
                                     alt="single-post" class="img-fluid">
                             </div>
                             <div class="post-description py-4" [innerHTML]="item.content">
@@ -48,7 +48,7 @@
             <div class="col-md-4 my-4 my-md-0" *ngFor="let item of blog">
                 <div class="card position-relative">
                     <a [routerLink]="['/single-blog/' + item.id]"><img
-                            src="https://localhost:7192/api/GetImage/get-images-cart/{{item.image}}"
+                            src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.image}}"
                             class="img-fluid rounded-4" alt="image"></a>
                     <div class="card-body p-0">
                         <a [routerLink]="['/single-blog/' + item.id]">

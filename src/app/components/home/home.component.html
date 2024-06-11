@@ -210,7 +210,7 @@
         <div class="swiper-slide" *ngFor="let item of ListProduct">
           <div class="card position-relative">
             <a [routerLink]="['/single-product/' + item.id]" style="width: 100%; height: 20rem;">
-              <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link[0].link}}"
+              <img src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.link[0].link}}"
                 *ngIf="item.link.length > 0" class="img-fluid rounded-4" alt="image"
                 style="height: 100%; width: 100%; object-fit: cover;">
             </a>
@@ -264,7 +264,7 @@
           <!--  -->
           <div class="card position-relative">
             <a [routerLink]="['/single-product/' + item.id]" style="width: 100%; height: 20rem;">
-              <img src="https://localhost:7192/api/GetImage/get-images-cart/{{item.link}}" *ngIf="item.link"
+              <img src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.link}}" *ngIf="item.link"
                 class="img-fluid rounded-4" alt="image" style="height: 100%; width: 100%; object-fit: cover;">
             </a>
             <div class="card-body p-0">
@@ -421,7 +421,7 @@
       <div class="col-md-4 my-4 my-md-0" *ngFor="let item of listBlog">
         <div class="card position-relative">
           <a [routerLink]="['/single-blog/' + item.id]"><img
-              src="https://localhost:7192/api/GetImage/get-images-cart/{{item.image}}" class="img-fluid rounded-4"
+              src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.image}}" class="img-fluid rounded-4"
               alt="image"></a>
           <div class="card-body p-0">
             <a [routerLink]="['/single-blog/' + item.id]">

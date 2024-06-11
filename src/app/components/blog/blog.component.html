@@ -10,7 +10,7 @@
       <div class="col-md-4 my-4 my-md-0" *ngFor="let item of listBlogs">
         <div class="card position-relative">
           <a [routerLink]="['/single-blog/' + item.id]"><img
-              src="https://localhost:7192/api/GetImage/get-images-cart/{{item.image}}" class="img-fluid rounded-4"
+              src="https://api-cs5-server.tryasp.net/GetImage/get-images-cart/{{item.image}}" class="img-fluid rounded-4"
               alt="image"></a>
           <div class="card-body p-0">
             <a [routerLink]="['/single-blog/' + item.id]">
